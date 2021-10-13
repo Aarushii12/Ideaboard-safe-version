@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    
+    <title>IdeaPage</title>
+<style>
+     @media (min-width: 250px) and (max-width:8000px) {
+body{
+    font-family: "Mukta", sans-serif;
+    font-size: larger;
+    color: black;
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.customborder{
+    border: cornsilk 2px solid;
+}
+.navbar{
+            display: flex;
+            justify-content: flex-end;
+        }
+        .navbar ul{
+            overflow: auto;
+        }
+        .navbar li{
+            display: flex;
+            
+             float: left;
+            list-style: none; 
+            margin: 13px 20px;
+            
+        }
+        .navbar li a{
+            padding: 3px 3px;
+            text-decoration: none;
+            color: white;
+            font-family:Arial, Helvetica, sans-serif ;
+            font-size: 2.3vh ;
+            background-color: black;
+
+            
+        }
+        .navbar li a:hover{
+            color:red;        }
+
+        #addModal{
+            display: flex;
+            justify-content: flex-end;
+        
+            float: right;
+            font-family: cursive;
+            font-size: 3vh;
+            margin-bottom: 2vh;
+            background-color:skyblue;
+            margin: 19vh 3vh 3vh 3vh;
+            padding: 2vh 2vh 2vh 2vh;
+        }    
+
+        
+        .Titclass{
+            padding-left: 8.2vh;
+        }
+        .cdes{
+           
+            padding-right : 0.004vh;
+            
+        }
+
+        #nameid{ 
+            padding-left: 8.2vh;   
+        }
+
+        .modal-title{
+            margin-left: 7.3vh;
+            color: white;
+            
+        }
+        .btndes{
+            background-color: white;
+            margin-left: 9.9vh;
+            
+        }
+        .btndes:hover{
+            color:gray;
+            background-color: black;
+        }
+        .wind{
+            color:whitesmoke;
+            display: flex;   
+            justify-content:first baseline;
+            font-family: cursive;
+            font-size: 2.5vh;
+        }
+        .psidd{
+            background-image: url('https://images.unsplash.com/photo-1604937455095-ef2fe3d46fcd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80');
+            border: solid 2px;
+            padding: 3vh 3vh 3vh 3vh;
+            margin: 2vh 2vh 2vh 7vh;
+            border-radius: 2.3vh;
+            display: inline-block;
+
+            
+        }
+       #title{
+           display: flex;
+           margin-left: 17vh;
+           margin-top: -2.8vh;
+       }
+        #description{
+              display: flex;
+              margin-left: 17vh;
+              margin-top: -2.8vh;
+        }
+        #namee{
+            display: flex;
+            margin-left: 17vh;
+              margin-top: -2.8vh;
+        }
+        input{
+            font-size: 2.1vh;
+            
+        }
+    }
+</style>
+</head>
+<body>
+  <header>
+   <nav class="navbar navbar-expand-1g navbar-light p-4">
+
+<div class="container">
+
+<ul>
+<li class="nav-item">
+<a class="navv" href="/logout">Log Out</a>
+</li>
+</ul>
+</div>
+</nav>
+</header>  
+    
+
+
+
+<div class="modal fade" id="addModal"
+tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<div class="modal-dialog">
+    <div class="modal-content">
+
+        
+        <div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel" >Add new ideas</h5>
+
+
+   </div>
+   <div class="modal-body">
+   
+
+
+       <form method="POST" action="/board/add">
+
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+           <div class="mb-3">
+
+            <label for="title" id ="nameid" class="col-form-label"> Name: </label>
+            <input
+            type="text"
+            class="form-control"
+            id="namee"
+            name="name"/>
+                       </div>
+               <label for="title" class="Titclass"> Title: </label>
+<input
+type="text"
+class="form-control"
+id="title"
+name="title"/>
+           </div>
+
+           <div class="mb-3">
+               <label for="description" class="cdes"> Description: </label>
+            <textarea 
+            class="form-control"
+            id="description"
+            name="description"
+            ></textarea>
+
+        </div class="mb-3">
+        <input
+        type="submit"
+        class="btndes"
+        value="Add new idea" />
+ 
+
+        </div>
+       </form>
+  
+
+     
+  
+   </div>
+    </div>
+
+</div>
+
+</div>
+
+    
+<div class="container">
+    <h2 class="wind">
+    Here are some wonderful Ideas !!!!!!!!
+    
+    </h2>
+    
+    <div class="psid">
+    
+      <%  if(data.length !=0){  %>
+        <% data.forEach((idea)=> {%>
+    
+    <div class="psidd">
+    <div class="bg-white d-flex flex-column shadow p-4 h-100">
+        <h4 class="p-3 text-center text-primary">Name: <%=idea.name%> </h4>
+    <h4 class="p-3 text-center text-primary">Title: <%=idea.title%> </h4>
+    <p> Description: <%= idea.description %></p>
+    
+    </div>>
+    </div>
+    <% }) %>
+    <% } %>
+    </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+4. then  -> echo "web: node app.js" > Procfile
+5. git add .
+6. git commit -am "any message"
+7. git push heroku master

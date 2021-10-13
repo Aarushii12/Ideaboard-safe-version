@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>signup Page</title>
+    <style>
+               
+               @media (min-width: 100px) and (max-width:6000px) {
+        body {
+            font-family: 'Recursive', sans-serif;
+            font-size: larger;
+            color: white;
+            background-color: black;
+        }
+    }
+
+        @media (min-width: 285px) and (max-width:8000px) {
+        .customborder {
+            border-radius: 2%;
+            border: 2px  whitesmoke;
+            display: flex;
+            justify-content: center;
+        }}
+
+        @media (min-width: 300px) and (max-width:8000px) {
+        .navbar{
+            background-color: none;  
+             display: flex;
+             justify-content: flex-end;
+
+                    
+        }}
+        .navbar ul{
+            overflow: auto;
+        }
+        
+        @media (min-width: 300px) and (max-width:8000px) {
+
+        .navbar li{
+            display: flex;
+            list-style: none; 
+            float: left;
+            margin: 13px 20px;
+            
+        }}
+
+        @media(min-width: 300px) and   (max-width:8000px) {
+
+        .navbar li a{
+            padding: 0.3vh 0.3vh;
+            text-decoration: none;
+            color: white;
+            font-family:Arial, Helvetica, sans-serif ;
+            font-size: 2.3vh ;
+        }}
+        
+
+        @media (min-width: 280px) and (max-width:8000px) {
+
+        .navbar li a:hover{
+            color: red;
+        }
+    }
+
+    @media  (min-width: 300px) and (max-width:8000px) {
+
+        .Register{
+            
+            margin-top: 15vh;
+            display: flex;
+            justify-content: center;
+            color: whitesmoke;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 3.5vh;
+            
+        }
+
+        #regbtn{
+            font-size: 2vh;
+        }
+    }
+
+        @media (min-width: 3000px) and (max-width:8000px) {
+
+        .formcontrol{
+             margin-top: 4vh;
+             font-size: 6vh;
+             
+
+        }}
+        #regbtn{
+            margin-right: 5vh;
+        }
+
+        input{
+            font-size: large;
+        }
+        
+    
+       
+    </style>
+</head>
+
+<body>
+
+    <nav>
+            <div class="navbar" id="navbarNav">
+
+                <ul >
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="">Signup</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <h1 class="Register">Register Yourself</h1> <br>
+        <div class=" customborder">
+
+            <% if(typeof err !='undefined' ){ %>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong> Error </strong>
+                    <%= err %>.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <% } %>
+
+                    <form action="/signup" method="POST">
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <div class="mb-3">
+                            <label for="email">Enter Your Email : </label> <br>
+                            <input type="email" class="formcontrol" name="email" id="email"
+                                autocomplete="off" placeholder="Email">
+                        </div> <br>
+
+                        <div class="mb-3">
+                            <label for="username">Choose A Username: </label> <br>
+                            <input type="text" class="formcontrol" name="username" id="username"
+                                autocomplete="off" placeholder="Username">
+                        </div> <br>
+                        <div class="mb-3">
+                            <label for="password">Choose A Password : </label> <br>
+                            <input type="password" class="formcontrol" name="password" id="password"
+                                autocomplete="off" placeholder="Password">
+                        </div> <br>
+                        <div class="mb-3">
+                            <label for="confirmpassword">Confirm Your Password: </label> <br>
+                            <input type="password" class="formcontrol" name="confirmpassword"
+                                id="confirmpassword" autocomplete="off" placeholder="Confirm Password">
+                        </div> <br>
+                        <div>
+                            <input type="submit" id="regbtn" value="Register"> <br>
+                        </div> <br>
+                        <p>Already Registered ? <a class="card-link" href="/login">Login Here</a> </p>
+                    </form>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
