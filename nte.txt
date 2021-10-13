@@ -1,4 +1,7 @@
+2. Github new Repo banao and terminal p jaake project folder me jaao and type kro -> git init
+3. then -> heroku create <prject-name>
 4. then  -> echo "web: node app.js" > Procfile
 5. git add .
 6. git commit -am "any message"
 7. git push heroku master
+itte commands k baad hojaega
