@@ -5,3 +5,4 @@
 6. git commit -am "any message"
 7. git push heroku master
 itte commands k baad hojaega
+git push -f heroku master
