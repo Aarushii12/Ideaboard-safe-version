@@ -27,7 +27,7 @@ app.use(expressSession({
     secret: "random",
     resave: true,
     saveUninitialized: true,
-    maxAge: 24 * 60 * 60 * 1000,
+    maxAge: 24 * 60 * 60 * 10000,
     store: new MemoryStore(),
 }));
 
