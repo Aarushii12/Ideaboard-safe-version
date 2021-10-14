@@ -14,6 +14,7 @@
     "flash": "^1.1.0",
     "git": "^0.1.5",
     "memorystore": "^1.6.6",
+    "mime": "^2.5.2",
     "mongoose": "^6.0.10",
     "nodemon": "^2.0.13",
     "parser": "^0.1.4",
