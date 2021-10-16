@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/harrytkart2', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb+srv://aarushi12:Waitwhat@cluster0.esna2.mongodb.net/ideareel?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
 const expressSession = require('express-session');
 const csrf = require('csurf');
 const cookieParser = require('cookie-parser');
